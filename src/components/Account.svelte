@@ -5,8 +5,9 @@
     import { Button } from '$lib/components/ui/button';
     import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
     import { Switch } from '$lib/components/ui/switch';
+    import questions from '$lib/lib/questions.json';
 
-    let page = 0;
+    let page = 4;
     let canAdvance = false;
 
     let name = '';
@@ -16,7 +17,8 @@
     let pass3 = '';
     let petName = '';
     let bookChosen = '';
-    let cookies = true;
+    let cookies1 = true;
+    let cookies2 = true;
 
     $: switch(page) {
         case 0:
@@ -38,7 +40,7 @@
 </script>
 
 <div class="flex flex-col items-center pt-20">
-    <Card.Root class="w-1/4">
+    <Card.Root class="w-2/7">
         <Card.Content>
             <h1 class="font-bold w-full text-center text-2xl pt-3">
                 {#if page <= 1}
@@ -107,12 +109,42 @@
                     </DropdownMenu.Root>
                 </div>
             {:else if page === 4}
+                {#each questions.slice(0, 23) as question}
+                    <div class="flex items-center pt-5 gap-5 w-full justify-between">
+                        <div class="text-lg">
+                            {question}
+                        </div>
+                        <Switch checked />
+                    </div>
+                {/each}
                 <div class="flex items-center pt-5 gap-5 w-full justify-between">
                     <div class="text-lg">
                         Do you agree to all cookies?
                     </div>
-                    <Switch bind:checked={cookies} />
+                    <Switch bind:checked={cookies1} />
                 </div>
+                {#each questions.slice(23, 31) as question}
+                    <div class="flex items-center pt-5 gap-5 w-full justify-between">
+                        <div class="text-lg">
+                            {question}
+                        </div>
+                        <Switch checked />
+                    </div>
+                {/each}
+                <div class="flex items-center pt-5 gap-5 w-full justify-between">
+                    <div class="text-lg">
+                        Do you agree to all cookies?
+                    </div>
+                    <Switch bind:checked={cookies2} />
+                </div>
+                {#each questions.slice(31) as question}
+                    <div class="flex items-center pt-5 gap-5 w-full justify-between">
+                        <div class="text-lg">
+                            {question}
+                        </div>
+                        <Switch checked />
+                    </div>
+                {/each}
             {/if}
         </Card.Content>
         <Card.Footer>
@@ -120,7 +152,7 @@
                 <Button disabled={!canAdvance}
                 on:click={() => {
                     if(page === 4) {
-                        if(cookies) location.href = '/lose';
+                        if(cookies1 || cookies2) location.href = '/lose';
                         // else trigger captcha dialog
                     } else {
                         page++
