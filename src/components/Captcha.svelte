@@ -27,7 +27,7 @@ closeOnEscape={false} closeOnOutsideClick={false}>
                         src = "/images/altered.png";
                         openWrong = true;
                     } else if (input == "a1Z4q") {
-                        location.href = "/clicker";
+                        location.href = "/quiz";
                     } else {
                         openWrong = true;
                     }
