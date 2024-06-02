@@ -17,6 +17,7 @@ closeOnEscape={false} closeOnOutsideClick={false}>
             </Dialog.Title>
             <Dialog.Description>
                 <div class = "flex items-center justify-around">
+                <div class = "flex items-center justify-around">
                     Please accept cookies.
                 </div>
                 <div class = "flex items-center justify-around mt-4">
