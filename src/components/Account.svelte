@@ -7,7 +7,7 @@
     import { Switch } from '$lib/components/ui/switch';
     import questions from '$lib/lib/questions.json';
 
-    let page = 4;
+    let page = 0;
     let canAdvance = false;
 
     let name = '';
@@ -40,7 +40,7 @@
 </script>
 
 <div class="flex flex-col items-center pt-20">
-    <Card.Root class="w-2/7">
+    <Card.Root class="w-1/3">
         <Card.Content>
             <h1 class="font-bold w-full text-center text-2xl pt-3">
                 {#if page <= 1}
