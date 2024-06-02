@@ -17,6 +17,88 @@
             "1950-1960",
             "After 1960"
         ],
+        "correct": 0
+    },
+    {
+        "question": "what was the third action taken on this site?",
+        "answers": [
+            "Manange prefences",
+            "Unclassified",
+            "Toggling personalization",
+            "creating an account with us"
+        ],
+        "correct": 2
+    },
+    {
+        "question": "Do you use all purpose flour when baking Chocolate Chip Cookies?",
+        "answers": [
+            "No it has very specific uses and cookies ain't one of them",
+            "yes",
+            "perhaps I don't bake",
+            "Ofcouse it's 'all purpose flour' as in used for all purposes"
+        ],
+        "correct": 3
+    },
+    {
+        "question": "what was the second letter of the captcha?",
+        "answers": [
+            "The letter I",
+            "The number 1",
+            "Both the letter I and the number 1",
+            "none of the above"
+        ],
+        "correct": 3
+    },
+    {
+        "question": "What was the first cookie option on the list?",
+        "answers":[
+            "Usage history",
+            "Uhhhhh why?",
+            "The Kingdom of the Planet of the Apes",
+            "Trimping"
+        ],
+        "correct": 0
+    },
+    {
+        "question": "What was today's Wordle?",
+        "answers":[
+            "Bazinga",
+            "Cookie",
+            "holy",
+            "Bravo"
+        ],
+        "correct": 3
+    },
+    {
+        "question": "If a rooster lays an egg on a barn roof which way does it roll?",
+        "answers":[
+            "Down",
+            "It doesn't they can't lay eggs", 
+            "To the right",
+            "Whatever way the wind blows"
+        ],
         "correct": 1
+    },
+    {
+        "question": "Where is most of the world's chocolate produced?",
+        "answers":[
+            "MERICA",
+            "Central and South America",
+            "Vatican City",
+            "West Africa"
+        ],
+        "correct": 3
+    },
+    {
+        "question": "how many times on this quiz has the correct answer been the first option given?",
+        "answers":[
+            "3 times",
+            "1 time",
+            "Never",
+            "Twice"
+        ],
+        "correct": 0
     }
+
+    ]
 ]
