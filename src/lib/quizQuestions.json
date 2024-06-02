@@ -20,7 +20,7 @@
         "correct": 0
     },
     {
-        "question": "what was the third action taken on this site?",
+        "question": "What was the third action taken on this site?",
         "answers": [
             "Manange prefences",
             "Unclassified",
@@ -33,21 +33,21 @@
         "question": "Do you use all purpose flour when baking Chocolate Chip Cookies?",
         "answers": [
             "No it has very specific uses and cookies ain't one of them",
-            "yes",
+            "Yes",
             "perhaps I don't bake",
-            "Ofcouse it's 'all purpose flour' as in used for all purposes"
+            "Of course, it's 'all purpose flour' as in used for all purposes"
         ],
         "correct": 3
     },
     {
-        "question": "what was the second letter of the captcha?",
+        "question": "What was the second letter of the captcha?",
         "answers": [
             "The letter I",
             "The number 1",
             "Both the letter I and the number 1",
-            "none of the above"
+            "None of the above"
         ],
-        "correct": 3
+        "correct": 2
     },
     {
         "question": "What was the first cookie option on the list?",
@@ -60,14 +60,14 @@
         "correct": 0
     },
     {
-        "question": "What was today's Wordle?",
+        "question": "What was today's Bazingle?",
         "answers":[
             "Bazinga",
             "Cookie",
-            "holy",
+            "Holy",
             "Bravo"
         ],
-        "correct": 3
+        "correct": 0
     },
     {
         "question": "If a rooster lays an egg on a barn roof which way does it roll?",
@@ -99,6 +99,4 @@
         ],
         "correct": 0
     }
-
-    ]
 ]
