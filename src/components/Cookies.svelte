@@ -7,18 +7,21 @@
     let cookies = cookieNames.map(name => {
         return {
             name,
-            enabled: false
+            enabled: true
         };
     });
 
-    let alertOpen = false;
+    let cookiesEnabledOpen = false;
     let timesReenabled = 0;
+
+    let confirmOpen = false;
+    let activeConfirmation = 0;
 
     function onConfirm() {
         let enabledCookies = cookies.filter(c => c.enabled);
 
         if(enabledCookies.length > 0) {
-            alertOpen = true;
+            cookiesEnabledOpen = true;
             return;
         }
 
@@ -31,12 +34,84 @@
                 cookies[index].enabled = true;
             }
 
-            alertOpen = true;
+            cookiesEnabledOpen = true;
+        } else {
+            confirmOpen = true;
+        }
+    }
+
+    function closeConfirmations() {
+        confirmOpen = false;
+        activeConfirmation = 0;
+    }
+
+    let makeAccountOpen = false;
+
+    function nextConfirmation(e: any) {
+        e.preventDefault();
+        activeConfirmation++;
+
+        if(activeConfirmation >= cookies.length - 1) {
+            confirmOpen = false;
+            activeConfirmation = 0;
+            makeAccountOpen = true;
         }
     }
 </script>
 
-<AlertDialog.Root bind:open={alertOpen}>
+<AlertDialog.Root bind:open={makeAccountOpen}>
+    <AlertDialog.Content>
+        <h1 class="text-xl text-center">
+            Before making any changes you need to make an account.
+        </h1>
+
+        <AlertDialog.Footer>
+            <AlertDialog.Action on:click={() => {
+                location.href = "/account"
+            }}>
+                Continue
+            </AlertDialog.Action>
+        </AlertDialog.Footer>
+    </AlertDialog.Content>
+</AlertDialog.Root>
+
+<AlertDialog.Root bind:open={confirmOpen}>
+    <AlertDialog.Content>
+        <h1>
+            You have disabled {cookies[activeConfirmation].name}!
+            Are you sure you want to continue?
+        </h1>
+        <AlertDialog.Footer style={activeConfirmation >= 16 ? 'justify-content: start' : ''}>
+            {#if activeConfirmation < 9}
+                <AlertDialog.Cancel on:click={closeConfirmations}>
+                    Cancel
+                </AlertDialog.Cancel>
+            {/if}
+            {#if activeConfirmation < 16}
+                <AlertDialog.Action on:click={nextConfirmation}>
+                    Continue
+                </AlertDialog.Action>
+            {:else}
+                <AlertDialog.Cancel on:click={nextConfirmation}>
+                    Continue
+                </AlertDialog.Cancel>
+            {/if}
+            {#if activeConfirmation >= 9}
+                {#if activeConfirmation < 16}
+                    <AlertDialog.Cancel on:click={closeConfirmations}>
+                        Cancel
+                    </AlertDialog.Cancel>
+                {:else}
+                    <AlertDialog.Action on:click={closeConfirmations}>
+                        Cancel
+                    </AlertDialog.Action>
+                {/if}
+            {/if}
+        </AlertDialog.Footer>
+    </AlertDialog.Content>
+</AlertDialog.Root>
+
+<AlertDialog.Root bind:open={cookiesEnabledOpen}>
     <AlertDialog.Content>
         <h1 class="w-full text-center text-xl">
             There are {cookies.filter(c => c.enabled).length} cookies still enabled.
