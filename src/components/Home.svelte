@@ -16,8 +16,12 @@ closeOnEscape={false} closeOnOutsideClick={false}>
                 </h1>
             </Dialog.Title>
             <Dialog.Description>
-                <div>
+                <div class = "flex items-center justify-around">
                     Please accept cookies.
+                </div>
+                <div class = "flex items-center justify-around mt-4">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="bg-foreground border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center">Accept</a>
+                    <a href="/cookies" class="bg-foreground border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center">Manage Preferences</a>
                 </div>
             </Dialog.Description>
         </Dialog.Header>
