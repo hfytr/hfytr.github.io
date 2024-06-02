@@ -11,8 +11,33 @@
     let page = 0;
     let canAdvance = false;
 
-    let name = '';
-    let email = '';
+    let name = "";
+    let email = "";
+    let phoneNumber = "";
+    let password = "";
+    let hasBeenClicked = false;
+
+    function validateEmail(email: string) {
+        var emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;  
+        return emailRegEx.test(String(email).toLowerCase());
+    }
+
+    function validatePhoneNumber(number: string) {
+        var regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        return regex.test(number);
+    }
+
+    function handleSubmission() {
+        hasBeenClicked = true;
+
+        return isValidName && isValidEmail && isValidPhone && isValidPassword;
+    }
+
+    $: isValidName = name.length > 0;
+    $: isValidEmail = validateEmail(email);
+    $: isValidPhone = validatePhoneNumber(phoneNumber);
+    $: isValidPassword = password.length > 8;
+
     let pass1 = '';
     let pass2 = '';
     let pass3 = '';
@@ -42,10 +67,6 @@
     }
 </script>
 
-{#if captchaOpen}
-    <Captcha />
-{/if}
-
 <div class="flex flex-col items-center pt-20">
     <Card.Root class="w-1/3">
         <Card.Content>
@@ -57,14 +78,32 @@
                 {/if}
             </h1>
             {#if page === 0}
-                <Label for="name" class="text-lg">
-                    Name
-                </Label>
-                <Input id="name" placeholder="Your Name" bind:value={name} />
-                <Label for="email" class="text-lg pt-3">
-                    Email
-                </Label>
-                <Input id="email" type="email" placeholder="me@gmail.com" bind:value={email} />
+                <section>
+                    <div class="input-wrapper">
+                        <Label>Full Name</Label>
+                        <Input type="text" bind:value={name} />
+                        {#if hasBeenClicked && !isValidName} 
+                            <p class="validation-error">Please enter a name</p>
+                        {/if}
+                    </div>
+                    <div class="input-wrapper">
+                        <Label>Email</Label>
+                        <Input type="text" bind:value={email} />
+                        {#if hasBeenClicked && !isValidEmail} 
+                            <p class="validation-error text-xs mb-2">Invalid email</p>
+                        {/if}
+                    </div>
+                </section>
+                
+                <section>
+                    <div class="input-wrapper">
+                    <Label>Phone Number</Label>
+                    <Input type="text" bind:value={phoneNumber} />
+                    {#if hasBeenClicked && !isValidPhone} 
+                        <p class="validation-error text-xs">Invalid phone number</p>
+                    {/if}
+                    </div>
+                </section>
             {:else if page === 1}
                 <Label for="password" class="text-lg pt-3">
                     Password
@@ -161,7 +200,10 @@
                     if(page === 4) {
                         if(cookies1 || cookies2) location.href = '/lose';
                         else captchaOpen = true;
-                    } else {
+                    } else if (page !== 0) {
+                        page++
+                    }
+                    if (page === 0 && handleSubmission()) {
                         page++
                     }
                 }}>
