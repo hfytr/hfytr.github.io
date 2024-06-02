@@ -5,12 +5,14 @@ import '../app.css';
 <html lang="en" class="h-full dark">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/icon.png" />
+		<link rel="icon" type="image/png" href="/icon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sketchy Site</title>
 	</head>
-	<body class="h-full bg-fixed bg-no-repeat">
+	<body class="h-full bg-fixed bg-no-repeat bg-cover" style="
+	background-image: radial-gradient(at 70% 7%, rgba(157, 141, 141, 0.338) 0px, rgba(0, 0, 0, 0) 50%);
+	background-position: 50% 50%;">
 		<slot />
 	</body>
 </html>
