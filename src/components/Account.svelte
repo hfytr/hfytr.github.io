@@ -198,12 +198,12 @@
                 <Button disabled={!canAdvance}
                 on:click={() => {
                     if(page === 4) {
-                        if(cookies1 || cookies2) location.href = '/lose';
+                        if (cookies1 || cookies2) location.href = '/lose';
                         else captchaOpen = true;
                     } else if (page !== 0) {
                         page++
                     }
-                    if (page === 0 && handleSubmission()) {
+                    if (page === 0 && !handleSubmission()) {
                         page++
                     }
                 }}>

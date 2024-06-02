@@ -133,10 +133,12 @@
     <h1 class="text-5xl font-bold">Cookie Preferences</h1>
     <div class="grid" style="grid-template-columns: 450px 50px;">
         {#each cookies as cookie}
-            <div class="text-2xl">
+            <div class="text-2xl mt-3">
                 {cookie.name}
             </div>
-            <Switch bind:checked={cookie.enabled} />
+            <div class="mt-3">
+                <Switch bind:checked={cookie.enabled} />
+            </div>
         {/each}
     </div>
     <div class="flex items-center pb-20 pt-3">
