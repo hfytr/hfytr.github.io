@@ -131,7 +131,7 @@
 
 <div class="flex flex-col items-center justify-center pt-5">
     <h1 class="text-5xl font-bold">Cookie Preferences</h1>
-    <div class="grid" style="grid-template-columns: 300px 50px;">
+    <div class="grid" style="grid-template-columns: 450px 50px;">
         {#each cookies as cookie}
             <div class="text-2xl">
                 {cookie.name}

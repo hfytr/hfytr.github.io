@@ -6,6 +6,7 @@
     import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
     import { Switch } from '$lib/components/ui/switch';
     import questions from '$lib/lib/questions.json';
+    import Captcha from '$lib/components/Captcha.svelte';
 
     let page = 0;
     let canAdvance = false;
@@ -19,6 +20,8 @@
     let bookChosen = '';
     let cookies1 = true;
     let cookies2 = true;
+
+    let captchaOpen = false;
 
     $: switch(page) {
         case 0:
@@ -38,6 +41,10 @@
             break;
     }
 </script>
+
+{#if captchaOpen}
+    <Captcha />
+{/if}
 
 <div class="flex flex-col items-center pt-20">
     <Card.Root class="w-1/3">
@@ -114,7 +121,7 @@
                         <div class="text-lg">
                             {question}
                         </div>
-                        <Switch checked />
+                        <Switch checked={Math.random() > 0.3} />
                     </div>
                 {/each}
                 <div class="flex items-center pt-5 gap-5 w-full justify-between">
@@ -128,7 +135,7 @@
                         <div class="text-lg">
                             {question}
                         </div>
-                        <Switch checked />
+                        <Switch checked={Math.random() > 0.3} />
                     </div>
                 {/each}
                 <div class="flex items-center pt-5 gap-5 w-full justify-between">
@@ -142,7 +149,7 @@
                         <div class="text-lg">
                             {question}
                         </div>
-                        <Switch checked />
+                        <Switch checked={Math.random() > 0.3} />
                     </div>
                 {/each}
             {/if}
@@ -153,7 +160,7 @@
                 on:click={() => {
                     if(page === 4) {
                         if(cookies1 || cookies2) location.href = '/lose';
-                        // else trigger captcha dialog
+                        else captchaOpen = true;
                     } else {
                         page++
                     }

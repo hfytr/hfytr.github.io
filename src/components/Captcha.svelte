@@ -23,8 +23,10 @@ closeOnEscape={false} closeOnOutsideClick={false}>
             <div class = "flex items-center justify-around mt-4">
                 <input class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground" bind:value={input} />
                 <button class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground" on:click={() => {
-                    src = "/images/altered.png";
-                    if (input == "a1Z4q") {
+                    if(input == "aIZ4q") {
+                        src = "/images/altered.png";
+                        openWrong = true;
+                    } else if (input == "a1Z4q") {
                         location.href = "/clicker";
                     } else {
                         openWrong = true;
