@@ -3,9 +3,13 @@
 
     const confetti = new JSConfetti();
 
-    confetti.addConfetti({
-        confettiNumber: 500
-    });
+    let img = new Image();
+    img.src = '/winScreen.png';
+    img.onload = () => {
+        confetti.addConfetti({
+            confettiNumber: 500
+        });
+    }
 </script>
 
 <div class="flex flex-col items-center h-full bg-cover bg-center"
