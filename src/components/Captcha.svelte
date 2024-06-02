@@ -47,7 +47,7 @@ closeOnEscape={false} closeOnOutsideClick={false}>
             <Dialog.Title>
                 <div class="min-h-36 content-center">
                     <h1 class="font-bold text-3xl text-center text-foreground">
-                        Wrong Answer
+                        Incorrect Captcha, Try Again
                     </h1>
                 </div>
             </Dialog.Title>
