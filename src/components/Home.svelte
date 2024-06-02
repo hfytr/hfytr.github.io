@@ -20,8 +20,8 @@ closeOnEscape={false} closeOnOutsideClick={false}>
                     Before using the site, please accept cookies.
                 </div>
                 <div class = "flex items-center justify-around mt-4">
-                    <a href="./lose" class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground">Accept</a>
-                    <a href="./cookies" class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground">Manage Preferences</a>
+                    <a href="/lose" class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground">Accept</a>
+                    <a href="/cookies" class="bg-background border-solid border-color border-2 rounded-lg px-4 py-2 w-48 text-center text-foreground">Manage Preferences</a>
                 </div>
             </Dialog.Description>
         </Dialog.Header>
