@@ -30,7 +30,7 @@
     function handleSubmission() {
         hasBeenClicked = true;
 
-        return isValidName && isValidEmail && isValidPhone && isValidPassword;
+        return isValidName && isValidEmail && isValidPhone;
     }
 
     $: isValidName = name.length > 0;
@@ -66,6 +66,10 @@
             break;
     }
 </script>
+
+{#if captchaOpen}
+    <Captcha />
+{/if}
 
 <div class="flex flex-col items-center pt-20">
     <Card.Root class="w-1/3">
@@ -203,7 +207,7 @@
                     } else if (page !== 0) {
                         page++
                     }
-                    if (page === 0 && !handleSubmission()) {
+                    if (page === 0 && handleSubmission()) {
                         page++
                     }
                 }}>

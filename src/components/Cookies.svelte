@@ -29,7 +29,7 @@
             timesReenabled++;
 
             // enable timesReenabled cookies
-            for(let i = 0; i < timesReenabled; i++) {
+            for (let i = 0; i < timesReenabled; i++) {
                 let index = Math.floor(Math.random() * cookies.length);
                 cookies[index].enabled = true;
             }
@@ -64,7 +64,6 @@
         <h1 class="text-xl text-center">
             Before making any changes you need to make an account.
         </h1>
-
         <AlertDialog.Footer>
             <AlertDialog.Action on:click={() => {
                 location.href = "/account"
