@@ -122,7 +122,7 @@
                 Cancel
             </AlertDialog.Cancel>
             <AlertDialog.Action
-            on:click={() => location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}>
+            on:click={() => location.href = "/lose"}>
                 Continue
             </AlertDialog.Action>
         </AlertDialog.Footer>

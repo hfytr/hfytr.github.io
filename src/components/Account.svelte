@@ -120,7 +120,7 @@
                 <Button disabled={!canAdvance}
                 on:click={() => {
                     if(page === 4) {
-                        if(cookies) location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+                        if(cookies) location.href = '/lose';
                         // else trigger captcha dialog
                     } else {
                         page++
